@@ -38,8 +38,8 @@ class Order extends Model
     /**
      * Order memiliki banyak detail
      */
-    public function details(): HasMany
+    public function details()
     {
-        return $this->hasMany(OrderDetail::class);
+         return $this->hasMany(OrderDetail::class);
     }
 }
