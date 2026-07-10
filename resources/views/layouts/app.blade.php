@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="bg-gray-100">
-    <nav class="bg-teal-600 shadow">
-        <div class="max-w-7xl mx-auto flex justify-between px-6 py-4">
-            <h1 class="text-2xl font-bold text-white">
-                POS TOKO KELONTONG
+
+    {{-- NAVBAR --}}
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-teal-600 shadow">
+        <div class="flex justify-between items-center px-10 py-4">
+
+            <h1 class="text-3xl font-bold text-white">
+                TOKO SEDULURAN
             </h1>
-            <div>
-                <span class="text-white">
-                    {{ auth()->user()->name }}
-                </span>
-                <a href="/logout" class="text-white">
+
+            <div class="flex items-center gap-5 text-white">
+                <span>{{ auth()->user()->name }}</span>
+
+                <a href="{{ route('logout') }}" class="hover:underline">
                     Logout
                 </a>
             </div>
+
         </div>
     </nav>
-    <div class="max-w-7xl mx-auto mt-8">
+
+    {{-- ISI HALAMAN --}}
+    <main class="pt-24">
         @yield('content')
-    </div>
+    </main>
+
 </body>
+
 </html>
