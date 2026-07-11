@@ -7,7 +7,7 @@
             Riwayat Transaksi
         </h2>
         <a href="{{ route('cashier.index') }}" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg">
-            ← Kembali ke Kasir
+            ← Kembali ke Beranda
         </a>
     </div>
     <div class="bg-white rounded-lg shadow overflow-hidden">

@@ -61,7 +61,7 @@
                 <div class="flex justify-between items-center mb-6">
                     <div>
                         <h2 class="text-3xl font-bold">
-                            Kasir
+                            Pak Kasir
                         </h2>
                         <p class="text-gray-500">
                             Selamat Datang,
