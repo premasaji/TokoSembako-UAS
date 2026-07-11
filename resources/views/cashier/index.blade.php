@@ -21,11 +21,9 @@
                 <h1 class="text-2xl font-bold">
                     🛒 TOKO
                     <br>
-                    KELONTONG
+                    SEDULURAN
                 </h1>
-                <p class="text-sm mt-2 text-teal-100">
-                    Point Of Sale
-                </p>
+                
             </div>
             <nav class="flex-1 p-5">
                 <ul class="space-y-3">
