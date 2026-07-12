@@ -27,27 +27,33 @@ class AdminProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'price_buy' => 'required|numeric',
-            'price_sell' => 'required|numeric',
-            'stock' => 'required|numeric',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'price_buy' => 'required',
+            'price_sell' => 'required',
+            'stock' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $imageName = null;
+
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/products'), $imageName);
+
+            $request->image->move(
+                public_path('images/products'),
+                $imageName
+            );
         }
 
         Product::create([
             'name' => $request->name,
             'category' => $request->category,
-            'image' => $imageName,
             'price_buy' => $request->price_buy,
             'price_sell' => $request->price_sell,
-            'stock' => $request->stock
+            'stock' => $request->stock,
+            'image' => $imageName,
         ]);
-        return back()->with('success', 'Produk berhasil ditambahkan.');
+
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan.');
     }
 
     public function edit(Product $product)
