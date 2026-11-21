@@ -16,15 +16,15 @@
         <div class="flex h-full justify-between items-center px-10">
 
             <h1 class="text-3xl font-bold text-white">
-                TOKO SEDULURAN
+                TOKO SEMBAKO
             </h1>
 
             <div class="flex items-center gap-5 text-white">
                 <span>{{ auth()->user()->name }}</span>
 
-                <a href="{{ route('logout') }}" class="hover:underline">
+                {{-- <a href="{{ route('logout') }}" class="hover:underline">
                     Logout
-                </a>
+                </a> --}}
             </div>
 
         </div>

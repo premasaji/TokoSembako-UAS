@@ -8,7 +8,7 @@
 <body class="bg-sky-50 flex justify-center items-center h-screen">
 <div class="bg-white p-8 rounded-lg shadow-md w-96">
     <h2 class="text-3xl font-bold text-center text-sky-800 mb-6">
-        TOKO SEDULURAN
+        TOKO SEMBAKO
     </h2>
     @if(session('error'))
         <div class="bg-red-100 text-red-600 p-2 rounded mb-4">

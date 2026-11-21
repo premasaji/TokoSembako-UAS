@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Memaksa Laravel menggunakan HTTPS jika diakses via Ngrok (di environment production/lokal yang di-forward)
-        if (str_contains(request()->url(), 'ngrok-free.dev')) {
+        if (! $this->app->runningInConsole()
+            && str_contains(request()->getHost(), 'ngrok-free.dev')) {
             URL::forceScheme('https');
         }
     }

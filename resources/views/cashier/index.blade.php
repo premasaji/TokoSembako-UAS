@@ -21,7 +21,7 @@
                 <h1 class="text-2xl font-bold">
                     🛒 TOKO
                     <br>
-                    SEDULURAN
+                    SEMBAKO
                 </h1>
                 
             </div>

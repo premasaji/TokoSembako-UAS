@@ -8,7 +8,7 @@
             <h2 class="text-2xl font-bold">
                 TOKO
                 <br>
-                SEDULURAN
+                SEMBAKO
             </h2>
             <p class="text-sm text-sky-100 mt-2 mb-8">
                 Administrator
