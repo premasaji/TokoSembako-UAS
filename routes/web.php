@@ -23,6 +23,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/history',[AdminProductController::class,'history'])
     ->name('admin.history');
 
+    Route::get('/admin/reports', [AdminProductController::class, 'reports'])
+        ->name('admin.reports');
+
     Route::get('/admin/history/{id}',[AdminProductController::class,'historyDetail'])
     ->name('admin.history.detail');
 

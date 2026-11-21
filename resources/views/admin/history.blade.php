@@ -2,32 +2,37 @@
 @section('title', 'Riwayat Transaksi')
 @section('content')
 
-    <div class="flex gap-6">
+    <div class="flex px-6 pb-6 gap-6">
         {{-- Sidebar --}}
-        <aside class="w-60 bg-teal-600 text-white rounded-xl p-5 h-fit sticky top-5">
+        <aside class="admin-sidebar fixed top-[68px] left-0 w-60 h-[calc(100vh-68px)] bg-sky-700 text-white p-5 overflow-y-auto">
             <h2 class="text-2xl font-bold">
                 TOKO
                 <br>
                 SEDULURAN
             </h2>
-            <p class="text-sm text-teal-100 mt-2 mb-8">
+            <p class="text-sm text-sky-100 mt-2 mb-8">
                 Administrator
             </p>
             <ul class="space-y-3">
                 <li>
-                    <a href="{{ route('admin.dashboard') }}" class="block hover:bg-teal-700 px-4 py-3 rounded-lg">
+                    <a href="{{ route('admin.dashboard') }}" class="block hover:bg-sky-600 px-4 py-3 rounded-lg">
                         📊 Dashboard
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.history') }}"
-                        class="block bg-white text-teal-700 font-semibold px-4 py-3 rounded-lg">
+                        class="block bg-sky-100 text-sky-800 font-semibold px-4 py-3 rounded-lg">
                         🧾 Riwayat Transaksi
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.reports') }}" class="block hover:bg-sky-600 px-4 py-3 rounded-lg">
+                        📈 Laporan
                     </a>
                 </li>
                 <li class="pt-10">
                     <a href="{{ route('logout') }}"
-                        class="block text-center bg-red-500 hover:bg-red-600 px-4 py-3 rounded-lg">
+                        class="block text-center bg-sky-600 hover:bg-sky-500 px-4 py-3 rounded-lg">
                         Logout
                     </a>
                 </li>
@@ -35,18 +40,18 @@
         </aside>
 
         {{-- Content --}}
-        <div class="flex-1">
+        <div class="flex-1 pl-64">
             <h2 class="text-3xl font-bold mb-6">
                 Riwayat Transaksi
             </h2>
             @if (session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-5">
+                <div class="bg-sky-50 border border-sky-200 text-sky-800 px-4 py-3 rounded mb-5">
                     {{ session('success') }}
                 </div>
             @endif
             <div class="bg-white rounded-lg shadow overflow-hidden">
                 <table class="w-full">
-                    <thead class="bg-teal-600 text-white">
+                    <thead class="bg-sky-700 text-white">
                         <tr>
                             <th class="p-3">No</th>
                             <th>Invoice</th>
@@ -59,7 +64,7 @@
                     </thead>
                     <tbody>
                         @forelse($orders as $order)
-                            <tr class="border-b hover:bg-gray-50">
+                            <tr class="border-b hover:bg-sky-50">
                                 <td class="text-center">
                                     {{ $loop->iteration }}
                                 </td>

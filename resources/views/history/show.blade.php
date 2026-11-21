@@ -13,7 +13,7 @@
 
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <table class="w-full">
-            <thead class="bg-teal-600 text-white">
+            <thead class="bg-sky-700 text-white">
                 <tr>
                     <th class="p-3">Produk</th>
                     <th>Qty</th>
@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 @foreach ($order->details as $detail)
-                    <tr class="border-b">
+                    <tr class="border-b hover:bg-sky-50">
                         <td class="p-3">
                             {{ $detail->product->name }}
                         </td>
@@ -42,7 +42,7 @@
         </table>
     </div>
     <a href="{{ route('history.index') }}"
-        class="inline-block mt-5 bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded">
+        class="inline-block mt-5 bg-sky-600 hover:bg-sky-700 text-white px-5 py-2 rounded">
         Kembali
     </a>
 @endsection

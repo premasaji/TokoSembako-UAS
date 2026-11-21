@@ -133,8 +133,7 @@ class CashierTransactionController extends Controller
             DB::commit();
 
             session()->forget('cart');
-            return redirect()->route('cashier.index')
-                ->with('success', 'Transaksi berhasil.');
+            return redirect()->route('receipt', $order);
         } 
         catch (\Exception $e) {
             DB::rollBack();
@@ -145,6 +144,7 @@ class CashierTransactionController extends Controller
     public function receipt($id)
     {
         $order = Order::with('details.product')->findOrFail($id);
+        abort_unless($order->user_id === Auth::id(), 403);
 
         return view('cashier.receipt', compact('order'));
     }

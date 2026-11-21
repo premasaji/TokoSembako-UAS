@@ -6,13 +6,13 @@
         <h2 class="text-3xl font-bold ">
             Riwayat Transaksi
         </h2>
-        <a href="{{ route('cashier.index') }}" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg">
+        <a href="{{ route('cashier.index') }}" class="bg-sky-600 hover:bg-sky-700 text-white px-5 py-2 rounded-lg">
             ← Kembali ke Beranda
         </a>
     </div>
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <table class="w-full">
-            <thead class="bg-teal-600 text-white">
+            <thead class="bg-sky-700 text-white">
                 <tr>
                     <th class="p-3">No</th>
                     <th>Invoice</th>
@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 @forelse($orders as $order)
-                    <tr class="border-b hover:bg-gray-50">
+                    <tr class="border-b hover:bg-sky-50">
                         <td class="text-center">
                             {{ $loop->iteration }}
                         </td>
@@ -46,14 +46,14 @@
                         </td>
                         <td>
                             <a href="{{ route('history.show', $order->id) }}"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">
+                                class="bg-sky-600 hover:bg-sky-700 text-white px-3 py-1 rounded">
                                 Detail
                             </a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="text-center py-6">
+                        <td colspan="7" class="text-center py-6">
                             Belum ada transaksi.
                         </td>
                     </tr>

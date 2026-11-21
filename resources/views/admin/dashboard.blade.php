@@ -4,30 +4,35 @@
 
     <div class="flex px-6 pb-6 gap-6">
         {{-- Sidebar --}}
-        <aside class="fixed top-20 left-0 w-60 h-[calc(100vh-80px)] bg-teal-600 text-white p-5 overflow-y-auto">
+        <aside class="admin-sidebar fixed top-[68px] left-0 w-60 h-[calc(100vh-68px)] bg-sky-700 text-white p-5 overflow-y-auto">
             <h2 class="text-2xl font-bold">
                 TOKO
                 <br>
                 SEDULURAN
             </h2>
-            <p class="text-sm text-teal-100 mt-2 mb-8">
+            <p class="text-sm text-sky-100 mt-2 mb-8">
                 Administrator
             </p>
             <ul class="space-y-3">
                 <li>
                     <a href="{{ route('admin.dashboard') }}"
-                        class="block bg-white text-teal-700 font-semibold px-4 py-3 rounded-lg">
+                        class="block bg-sky-100 text-sky-800 font-semibold px-4 py-3 rounded-lg">
                         📊 Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.history') }}" class="block hover:bg-teal-700 px-4 py-3 rounded-lg">
+                    <a href="{{ route('admin.history') }}" class="block hover:bg-sky-600 px-4 py-3 rounded-lg">
                         🧾 Riwayat Transaksi
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.reports') }}" class="block hover:bg-sky-600 px-4 py-3 rounded-lg">
+                        📈 Laporan
                     </a>
                 </li>
                 <li class="pt-10">
                     <a href="{{ route('logout') }}"
-                        class="block text-center bg-red-500 hover:bg-red-600 px-4 py-3 rounded-lg">
+                        class="block text-center bg-sky-600 hover:bg-sky-500 px-4 py-3 rounded-lg">
                         Logout
                     </a>
                 </li>
@@ -40,7 +45,7 @@
                 Dashboard Admin
             </h2>
             @if (session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-5">
+                <div class="bg-sky-50 border border-sky-200 text-sky-800 px-4 py-3 rounded mb-5">
                     {{ session('success') }}
                 </div>
             @endif
@@ -50,19 +55,19 @@
 
                 <div class="bg-white rounded-lg shadow p-6">
                     <p class="text-gray-500">Total Produk</p>
-                    <h1 class="text-4xl font-bold text-teal-600">
+                    <h1 class="text-4xl font-bold text-sky-700">
                         {{ $products->count() }}
                     </h1>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6">
                     <p class="text-gray-500">Penjualan Hari Ini</p>
-                    <h1 class="text-4xl font-bold text-teal-600">
+                    <h1 class="text-4xl font-bold text-sky-700">
                         Rp {{ number_format($todaySales) }}
                     </h1>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6">
                     <p class="text-gray-500">Total Stok</p>
-                    <h1 class="text-4xl font-bold text-teal-600">
+                    <h1 class="text-4xl font-bold text-sky-700">
                         {{ $totalStock }}
                     </h1>
                 </div>
@@ -70,7 +75,7 @@
 
             {{-- Form Tambah Produk --}}
             <div class="bg-white rounded-lg shadow p-6 mb-8">
-                <h3 class="text-xl font-bold text-teal-600 mb-5">
+                <h3 class="text-xl font-bold text-sky-700 mb-5">
                     Tambah Produk
                 </h3>
                 <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
@@ -106,14 +111,14 @@
                             <input type="number" name="stock" class="w-full border rounded-lg p-2" required>
                         </div>
                     </div>
-                    <button type="submit" class="mt-5 bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg">
+                    <button type="submit" class="mt-5 bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg">
                         Simpan Produk
                     </button>
                 </form>
             </div>
             <div class="bg-white rounded-lg shadow overflow-hidden">
                 <table class="w-full">
-                    <thead class="bg-teal-600 text-white">
+                    <thead class="bg-sky-700 text-white">
                         <tr>
                             <th class="p-3 w-16">No</th>
                             <th class="w-24">Gambar</th>
@@ -143,11 +148,11 @@
                                     {{ $product->name }}
                                 </td>
                                 <td>
-                                    <span class="bg-teal-100 text-teal-700 px-2 py-1 rounded-full text-xs">
+                                    <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded-full text-xs">
                                         {{ $product->category }}
                                     </span>
                                 </td>
-                                <td class="font-semibold text-teal-600">
+                                <td class="font-semibold text-sky-700">
                                     Rp {{ number_format($product->price_sell) }}
                                 </td>
                                 <td>
@@ -156,7 +161,7 @@
                                             {{ $product->stock }}
                                         </span>
                                     @else
-                                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded">
+                                        <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded">
                                             {{ $product->stock }}
                                         </span>
                                     @endif
@@ -164,7 +169,7 @@
                                 <td>
                                     <div class="flex justify-center gap-2">
                                         <a href="{{ route('product.edit', $product->id) }}"
-                                            class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
+                                            class="bg-sky-600 hover:bg-sky-700 text-white px-3 py-1 rounded">
                                             Edit
                                         </a>
                                         <form action="{{ route('product.destroy', $product->id) }}" method="POST">

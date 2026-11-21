@@ -9,11 +9,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-sky-50">
 
     {{-- NAVBAR --}}
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-teal-600 shadow">
-        <div class="flex justify-between items-center px-10 py-4">
+    <nav class="app-navbar sticky top-0 z-50 h-[68px] bg-sky-700 shadow-sm">
+        <div class="flex h-full justify-between items-center px-10">
 
             <h1 class="text-3xl font-bold text-white">
                 TOKO SEDULURAN
@@ -31,7 +31,7 @@
     </nav>
 
     {{-- ISI HALAMAN --}}
-    <main class="pt-24">
+    <main>
         @yield('content')
     </main>
 

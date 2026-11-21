@@ -116,6 +116,29 @@ class AdminProductController extends Controller
         return view('admin.history', compact('orders'));
     }
 
+    public function reports()
+    {
+        $currentTime = now();
+        $dailyStart = $currentTime->copy()->startOfDay();
+        $dailyEnd = $currentTime->copy()->endOfDay();
+        $monthlyStart = $currentTime->copy()->startOfMonth();
+        $monthlyEnd = $currentTime->copy()->endOfMonth();
+
+        $dailyReport = Order::whereBetween('created_at', [$dailyStart, $dailyEnd])
+            ->selectRaw('COUNT(*) as transaction_count, COALESCE(SUM(total_items), 0) as total_items, COALESCE(SUM(total_price), 0) as total_sales')
+            ->first();
+
+        $monthlyReport = Order::whereBetween('created_at', [$monthlyStart, $monthlyEnd])
+            ->selectRaw('COUNT(*) as transaction_count, COALESCE(SUM(total_items), 0) as total_items, COALESCE(SUM(total_price), 0) as total_sales')
+            ->first();
+
+        return view('admin.reports', compact(
+            'currentTime',
+            'dailyReport',
+            'monthlyReport'
+        ));
+    }
+
     public function historyDetail($id)
     {
         $order = Order::with('details.product', 'user')
